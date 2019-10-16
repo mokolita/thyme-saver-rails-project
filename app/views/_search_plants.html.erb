@@ -1,4 +1,8 @@
-<%= form_with url: plants_path, method: :post do |f| %>
-<%= f.text_field :name, placeholder: "Search a plant here" %>
-<%= f.submit %>
-<%end%>
+
+
+<%= form_with(url: plants_path, method: 'get', local: true) do %>
+           <%= label_tag :name %>
+           <%= text_field_tag :name, nil, placeholder: 'Search for a a plant' %>
+            <%= button_tag 'Search' %>
+       <% end %>
+

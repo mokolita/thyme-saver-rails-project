@@ -1,7 +1,7 @@
-<%=form_with model: @user do |f| %>
+<%=form_for(:session, url: login_path) do |f| %>
     <%= f.text_field :email, placeholder: "email" %>
     <%= f.password_field :password, placeholder: "password" %>
     <%= f.submit %>
-
-
 <%end%>
+
+<p>New user? <%= link_to "Sign Up Now!", new_user_path %>

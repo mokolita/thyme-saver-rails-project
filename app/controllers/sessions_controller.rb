@@ -9,11 +9,12 @@ class SessionsController < ApplicationController
                 .try(:authenticate, params["user"]["password"])
     
         if user
-          session[:user_id] = user.id
+          log_in user 
           redirect_to user_path(user)
 
         else
-          render flash[:message] = "401: Unable to authenticate."
+          flash.now[:message] = "401: Unable to authenticate."
+          render :new
         end
       end
 

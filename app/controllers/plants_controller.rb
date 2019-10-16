@@ -6,13 +6,12 @@ class PlantsController < ApplicationController
     end 
 
     def create 
-        #raise params.inspect
-        #byebug
+        
         @search = TAPIManager.search(params[:name])
         @search.each do |p|
             PlantPlaceholder.new(p[:common_name], p[:scientific_name], p[:id])
         end 
-        render :index 
+        redirect_to plants_path 
     end
     
     
