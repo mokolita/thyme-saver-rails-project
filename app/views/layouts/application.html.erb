@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ThymeSaverRailsProject</title>
+    <title><%= yield(:title)%> | Thyme Saver</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -16,11 +16,10 @@
   <body>
     <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
-        <%= link_to "Thyme Saver", 'root_path', id: "logo" %>
+        <%= link_to "Thyme Saver", '/', id: "logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home",   'root_path' %></li>
-            <li><%= link_to "Help",   '#' %></li>
+            <li><%= link_to "Home", '/' %></li>
             <% if logged_in? %>
               <li><%= link_to "Users", '#' %></li>
               <li class="dropdown">
