@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
                 .try(:authenticate, params["user"]["password"])
     
         if user
-          log_in user 
+          log_in(user)  
           redirect_to user_path(user)
 
         else
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
       end
 
     def destroy
-        session[:user_id].delete
+        log_out
         redirect_to '/'
     end 
 end
