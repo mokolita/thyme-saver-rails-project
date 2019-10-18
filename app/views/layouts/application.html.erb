@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= yield(:title)%> | Thyme Saver</title>
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -29,7 +29,6 @@
                 <ul class="dropdown-menu">
                   <li><%= link_to "Profile", current_user %></li>
                   <li><%= link_to "Settings", '#' %></li>
-                  <li class="divider"></li>
                   <li>
                     <%= link_to "Log out", logout_path, method: "delete" %>
                   </li>

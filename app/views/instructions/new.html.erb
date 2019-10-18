@@ -1,0 +1,7 @@
+<%= form_for @plants_user do |f| %>
+<%= f.label :instruction, "Add an instruction"%>
+<%= f.nested_fields_for :instructions do |i_form| %>
+    <%= i_form.text_area :notes %>
+    <%end%>
+<%= f.submit %>
+<%end%>

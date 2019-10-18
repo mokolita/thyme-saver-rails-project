@@ -1,6 +1,6 @@
 
 
-<%= form_with(url: plants_path, method: 'get', local: true) do %>
+<%= form_tag(plants_search_path) do %>
            <%= label_tag :name %>
            <%= text_field_tag :name, nil, placeholder: 'Search for a a plant' %>
             <%= button_tag 'Search' %>

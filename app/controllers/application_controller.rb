@@ -18,17 +18,11 @@ class ApplicationController < ActionController::Base
         end 
 
         def self.search(plant)
-            @all_searched_plants = []
-            @searched_plants = {:common_name => nil, :scientific_name => nil, :id => nil}
-            @plant = ApplicationController::TAPIManager.search_plant_by_name(plant)
-                @plant.each do |p|
-                @searched_plants[:common_name] = p["common_name"]
-                @searched_plants[:scientific_name] = p["scientific_name"] 
-                @searched_plants[:id] = p["id"]
-                @all_searched_plants << @searched_plants
-                end 
-            return @all_searched_plants
+            plants = ApplicationController::TAPIManager.search_plant_by_name(plant)
+            @placeholders = PlantPlaceholder.mass_create_from_hash(plants)      
         end
+
+
     end 
 
     

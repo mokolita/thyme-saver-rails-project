@@ -5,8 +5,8 @@ class SessionsController < ApplicationController
 
     def create
         user = User
-                .find_by(email: params["user"]["email"])
-                .try(:authenticate, params["user"]["password"])
+                .find_by(email: params["session"]["email"])
+                .try(:authenticate, params["session"]["password"])
     
         if user
           log_in(user)  

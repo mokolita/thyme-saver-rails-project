@@ -1,8 +1,20 @@
 Rails.application.routes.draw do
   resources :plants
-  resources :users
-  resource :sessions, only: [:create]
-  get 'login', to: 'sessions#new'
+  resources :users do 
+    resources :plants, only: [:create, :new, :show] do 
+      resources :instructions 
+      resources :reminders
+    end
+  
+
+  end 
+
+  
+
+  post 'plants/search' => 'plants#search', as: 'plants_search'
+  
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
   root "welcome#index"

@@ -1,1 +1,8 @@
-<% #would it be if "click" add plant_id to plantsuser?%>
+
+    <%= form_tag user_plants_path(current_user) do %>
+        <%= hidden_field_tag :plant_id, plant_id %>
+        <%= submit_tag "Add to profile" %>
+    <% end %>
+    
+
+
