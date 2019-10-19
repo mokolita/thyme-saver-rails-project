@@ -15,7 +15,8 @@ class UsersController < ApplicationController
     end 
 
     def show 
-        @user = current_user      
+        @user = current_user
+        @plantsuser = PlantsUser.find_by(user: @user)        
     end 
 
 
