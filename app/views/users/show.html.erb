@@ -1,15 +1,11 @@
-<h2><%= @user.full_name %></h2>
+<h1><%= @user.full_name %></h1>
 
 <div>
   <p>  <% current_user.plants.each do |p| %>
     <%= p.common_name %><br>
     <%= p.scientific_name %><br>
     <a href=<%= p.photo%> >
-    <% if p.instructions != nil %>
-    <% p.instructions.each do |i|  %>
-        <li><%=i.notes%></li>
-        <%end%>
-        <%end%>
+   
     <%end%>
     </p><br>
 </div>

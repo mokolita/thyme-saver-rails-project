@@ -6,19 +6,14 @@ class PlantsController < ApplicationController
     end 
 
     def create 
-        @plant = TAPIManager.get_plant_by_id(params[:plant_id])   
         user = current_user
-        new_plant = Plant.new(common_name: @plant["common_name"], scientific_name: @plant["scientific_name"], api_id: @plant["id"])
-        new_plant.perennial = true if @plant["duration"] == "Perennial"
-        new_plant.photo = @plant["images"][0] unless @plant["images"] == []
-        new_plant.user << user
-        if new_plant.save
-            redirect_to user_plants_path(user)
+        plant = Plant.find_or_create_from_placeholder(params[:plant_id], user)
+        if !plant.nil?
+            redirect_to user_path(user)  
         else
-            # redirect to home with flash of what went wrong
+            flash[:warning] = "Something went wrong!"
+           redirect_to '/'
         end
-            
-        
     end
 
     def show
@@ -27,6 +22,7 @@ class PlantsController < ApplicationController
     
     
     def search 
+        @name = params[:name]
         @search = TAPIManager.search(params[:name])
         
         @placeholders = @search.map do |p|

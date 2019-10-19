@@ -1,18 +1,28 @@
 class Plant < ApplicationRecord
     has_many :plants_users
     has_many :users, through: :plants_users
-    
-   def self.create_from_placeholder(pl)
+   
+   
+
+   def self.find_or_create_from_placeholder(api_id, user)
+    plant = Plant.find_by(api_id: api_id)
+    byebug
+        if plant.nil?
+        found_plant = ApplicationController::TAPIManager.get_plant_by_id(api_id)   
+        new_plant = Plant.new(common_name: found_plant["common_name"], scientific_name: found_plant["scientific_name"], api_id: found_plant["id"])
+        new_plant.perennial = true if found_plant["duration"] == "Perennial"
+        new_plant.photo = found_plant["images"][0] unless found_plant["images"] == []
+            if new_plant.save 
+                PlantsUser.create(plant: plant, user: user)
+            end 
+        else 
+            PlantsUser.create(plant: plant, user: user)
+        end 
+
         
    end
         
-   def instructions
-    user = current_user
-    plant =  self.plants_users where plants_users.user_id == user.id 
-    plant.instructions.map do |i| 
-        i.notes
-     end 
-    end 
+  
 
 end
 
