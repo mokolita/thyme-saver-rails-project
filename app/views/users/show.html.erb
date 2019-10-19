@@ -2,13 +2,14 @@
 
 <div>
   <p>  <% current_user.plants.each do |p| %>
-    <%= render '/status', {plantsuser = @plantsuser} %>
-    <%= p.common_name %><br>
-    <%= p.scientific_name %><br>
-    <a href=<%= p.photo%> >
-   
-    <%end%>
-    </p><br>
+        <%= p.common_name %><br>
+        <%= p.scientific_name %><br>
+        <% if !p.photo.nil?%>
+          <a href=<%= p.photo%>>See Photo</a>
+        <%end%>
+         <%= render '/status', {:plantsuser => @plantsuser, :user => @user} %><br>
+      <%end%>
+  </p>
 </div>
 
 

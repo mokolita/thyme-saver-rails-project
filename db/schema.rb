@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_17_223243) do
+ActiveRecord::Schema.define(version: 2019_10_19_224025) do
 
   create_table "instructions", force: :cascade do |t|
     t.integer "plants_user_id"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 2019_10_17_223243) do
     t.string "zipcode"
     t.string "email"
     t.string "password_digest"
+    t.string "uid"
+    t.string "name_from_fb"
   end
 
 end

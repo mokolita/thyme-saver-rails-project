@@ -19,6 +19,12 @@ class UsersController < ApplicationController
         @plantsuser = PlantsUser.find_by(user: @user)        
     end 
 
+    def edit 
+    end 
+
+    def update 
+    end 
+
 
     private 
 

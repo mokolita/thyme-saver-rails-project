@@ -1,3 +1,6 @@
-<%= form_with model: plantsuser do |f| %>
-    <%= f.select(:status, [['Want it', 1], ['Have it', 2]])%>
+<%= form_with model: user do |f| %>
+    <%= f.fields_for :plantsuser do |pu_form|%>
+    <%= pu_form.select(:status, [['Want it', 1], ['Have it', 2]])%>
+    <%end%>
+    <%= f.submit%>
 <%end%>

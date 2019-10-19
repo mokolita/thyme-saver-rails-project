@@ -15,5 +15,10 @@ class User < ApplicationRecord
         "#{self.first_name} #{self.last_name}"
     end 
 
-    
+    def app_name 
+        regular_name = self.name_from_fb.split(' ')
+        self.first_name = regular_name[0]
+        self.last_name = regular_name[1]
+        self.save 
+    end 
 end

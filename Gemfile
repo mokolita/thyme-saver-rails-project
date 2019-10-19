@@ -60,3 +60,9 @@ gem 'sassc-rails', '>= 2.1.0'
 gem "jquery-rails", "~> 4.3"
 
 gem "time_difference", "~> 0.5.0"
+
+gem "omniauth", "~> 1.9"
+
+gem "omniauth-facebook", "~> 5.0"
+
+gem "dotenv-rails", "~> 2.7"

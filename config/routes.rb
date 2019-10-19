@@ -5,14 +5,13 @@ Rails.application.routes.draw do
       resources :instructions 
       resources :reminders
     end
-  
-
   end 
 
   
 
   post 'plants/search' => 'plants#search', as: 'plants_search'
   
+  get 'auth/facebook/callback' => 'sessions#omniauth'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
