@@ -1,6 +1,7 @@
 class PlantPlaceholder
 
     attr_accessor :common_name, :scientific_name, :id, :image
+    
 
     def self.mass_create_from_hash(res)
         all_searched_plants = res.map do |p|

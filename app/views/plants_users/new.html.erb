@@ -1,0 +1,18 @@
+<div class="center jumbotron"> 
+<h3> Add instruction </h3>
+<%= form_with(model: @plants_user, url: user_plant_plants_users_path) do |f| %>
+
+<%= f.fields_for :instructions do |i_form| %>
+    <%= i_form.text_area :notes, placeholder: "Add general instructions here", class: 'form-control' %>
+<h4>Set up a reminder</h4>
+    <%= i_form.fields_for :reminders do |r_form| %>
+        <%= r_form.text_field :comment, placeholder: "What do you need to do?", class: 'form-control'%>
+        <%= r_form.label :interval, "When should we remind you?"%>
+        <%= r_form.number_field :interval, placeholder: "number of", class: 'form-control'%><p>days</p>
+        
+        <%end%>
+
+    <%end%>
+<%= f.submit "Add", class: "btn btn-primary" %>
+<%end%>
+</div>

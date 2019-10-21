@@ -5,12 +5,9 @@
         <%= p.common_name %><br>
         <%= p.scientific_name %><br>
         <% if !p.photo.nil?%>
-          <a href=<%= p.photo%>>See Photo</a>
+          <a href=<%= p.photo%>>See Photo</a><br>
         <%end%>
-         <%= render '/status', {:plantsuser => @plantsuser, :user => @user} %><br>
-      <%end%>
+         <%= link_to "Add instructions & reminders", new_user_plant_plants_user_path(@user.id, p.id) %><br><br>
+      <%end%><br>
   </p>
 </div>
-
-
-

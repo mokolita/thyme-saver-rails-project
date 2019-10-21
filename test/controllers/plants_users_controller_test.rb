@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class RemindersControllerTest < ActionDispatch::IntegrationTest
+class PlantsUsersControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

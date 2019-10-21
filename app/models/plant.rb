@@ -6,7 +6,7 @@ class Plant < ApplicationRecord
 
    def self.find_or_create_from_placeholder(api_id, user)
     plant = Plant.find_by(api_id: api_id)
-    byebug
+    
         if plant.nil?
         found_plant = ApplicationController::TAPIManager.get_plant_by_id(api_id)   
         new_plant = Plant.new(common_name: found_plant["common_name"], scientific_name: found_plant["scientific_name"], api_id: found_plant["id"])
@@ -14,12 +14,12 @@ class Plant < ApplicationRecord
         new_plant.photo = found_plant["images"][0] unless found_plant["images"] == []
             if new_plant.save 
                 PlantsUser.create(plant: plant, user: user)
+            else 
+                flash[:danger] = "Could not add to profile at this time."
             end 
         else 
             PlantsUser.create(plant: plant, user: user)
         end 
-
-        
    end
         
   

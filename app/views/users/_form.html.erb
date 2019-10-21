@@ -1,0 +1,9 @@
+
+
+<%= form_with model: @user, local: true do |f| %>
+    <%= f.text_field :first_name, placeholder: "first name", class: 'form-control' %>
+    <%= f.text_field :last_name, placeholder: "last name", class: 'form-control' %>
+    <%= f.text_field :email, placeholder: "email", class: 'form-control' %>
+    <%= f.password_field :password, placeholder: "password", class: 'form-control' %>
+    <%= f.submit "#{button_name}", class: "btn btn-primary" %>
+<%end %>

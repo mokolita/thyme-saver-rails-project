@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
     include SessionsHelper
-     
+    include UsersHelper
+
     class TAPIManager
        
         BASE_URL = "https://trefle.io/"
@@ -24,6 +25,17 @@ class ApplicationController < ActionController::Base
 
 
     end 
+
+    helpers
+    
+   
+
+    def show_instructions(plant_id)
+        user = current_user 
+        plants_user = PlantsUser.find_by(user_id: user.id, plant_id: plant_id)
+
+        plants_user.instructions.map {|i| i.notes}
+    end
 
     
 

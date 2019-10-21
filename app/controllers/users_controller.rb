@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
-    
+    def index
+        redirect_to root_path
+    end 
+
     def new
         @user = User.new
     end 
@@ -10,6 +13,7 @@ class UsersController < ApplicationController
             log_in(@user)
             redirect_to user_path(@user)
         else 
+            flash.now[:danger] = @user.errors.full_messages
             render :new 
         end 
     end 
@@ -20,10 +24,27 @@ class UsersController < ApplicationController
     end 
 
     def edit 
+        @user = User.find(current_user.id)
     end 
 
     def update 
+        @user = User.find(params[:id])
+        @user.update(user_params)
+        if @user.update.valid?
+            redirect_to user_path(@user)
+        else 
+            flash[:errors] = @user.errors.full_messages
+            render :edit 
+        end 
     end 
+
+    def destroy
+        @user = User.find(params[:id])
+        @user.destroy
+        flash[:delete] = 'Your account has been deleted.'
+        redirect_to root_path
+    end
+        
 
 
     private 
