@@ -8,4 +8,12 @@ module ApplicationHelper
           page_title + " | " + base_title
         end
     end
+
+    def show_instructions(plant)
+      user = current_user 
+      plants_user = PlantsUser.find_by(user: user, plant: plant)
+
+     @instructions = plants_user.instructions
+     render 'plants/instructions'
+  end
 end

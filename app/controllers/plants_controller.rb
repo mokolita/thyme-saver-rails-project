@@ -9,7 +9,13 @@ class PlantsController < ApplicationController
         user = current_user
         plant = Plant.find_or_create_from_placeholder(params[:plant_id], user)
         if !plant.nil?
-            redirect_to user_path(user)  
+           pu = PlantsUser.new(plant: plant, user: user)
+            if pu.save
+                redirect_to user_path(user) 
+            else 
+                flash[:warning] = "Something went wrong!"
+                redirect_to '/' 
+            end 
         else
             flash[:warning] = "Something went wrong!"
            redirect_to '/'
@@ -17,7 +23,7 @@ class PlantsController < ApplicationController
     end
 
     def show
-        @plant = Plant.find_by(api_id: params[:api_id])
+        redirect_to '/'
     end 
     
     
@@ -40,7 +46,4 @@ class PlantsController < ApplicationController
 
     private 
 
-    # def plant_params
-    #     params.require(:)
-    # end 
 end

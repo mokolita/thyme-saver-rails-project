@@ -13,12 +13,12 @@ class Plant < ApplicationRecord
         new_plant.perennial = true if found_plant["duration"] == "Perennial"
         new_plant.photo = found_plant["images"][0] unless found_plant["images"] == []
             if new_plant.save 
-                PlantsUser.create(plant: plant, user: user)
+                new_plant
             else 
-                flash[:danger] = "Could not add to profile at this time."
+                nil
             end 
         else 
-            PlantsUser.create(plant: plant, user: user)
+            plant 
         end 
    end
         

@@ -6,7 +6,6 @@ Rails.application.routes.draw do
     end
   end 
 
-  
 
   post 'plants/search' => 'plants#search', as: 'plants_search'
   

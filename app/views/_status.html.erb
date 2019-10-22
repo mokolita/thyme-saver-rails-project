@@ -1,6 +1,18 @@
-<%= form_with model: user do |f| %>
+
+<div class="card-button">
+<%= form_with(model: user, url: add_status_path, action: "edit", local: true) do |f| %>
     <%= f.fields_for :plantsuser do |pu_form|%>
-    <%= pu_form.select(:status, [['Want it', 1], ['Have it', 2]])%>
+    <%= pu_form.hidden_field :status, value: "Want"%>
     <%end%>
-    <%= f.submit%>
+    <%= f.submit "Want"%>
 <%end%>
+</div>
+<div class="card-button">
+<%= form_with(model: user, url: , local: true) do |f| %>
+    <%= f.fields_for :plantsuser do |pu_form|%>
+    <%= pu_form.hidden_field :status, value: "Owned"%>
+    <%= pu_form.hidden_field :id, value: :plantsuser%>
+    <%end%>
+    <%= f.submit "Own"%>
+<%end%>
+</div>

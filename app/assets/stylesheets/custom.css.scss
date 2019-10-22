@@ -49,7 +49,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
@@ -57,9 +57,20 @@ h2 {
   color: #777;
 }
 
+h3 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  font-weight: normal;
+  color: #777;
+  text-align: center;
+}
+
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+  letter-spacing: -1px;
+  font-weight: normal;
+  color: #777;
 }
 
 #logo {
@@ -80,5 +91,36 @@ p {
 
 #search_partial {
   padding: 20px;
+}
+
+.card {
+  background-color: #f1f1f1; 
+  padding: 20px;
+  margin: 10px;
+  width: 30%; 
+  border-radius: 10px;
+  font-size: 1.1em;
+  line-height: 1.7em;
+  letter-spacing: -1px;
+  font-weight: normal;
+  color: #777;
+  text-align: center;
+
+}
+
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap; 
+
+}
+
+.card-button {
+  display: inline-block;
+  input[type=submit] { 
+    background-color:white; 
+    border: 0px;
+    color: darkgray;
+    border-radius: 5px;
+  }
 }
 

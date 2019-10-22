@@ -1,16 +1,22 @@
 <div class="container">
-        <h3>Here's what we found for <%= @name%>.</h3>
+        <h2>Here's what we found for <%= @name%>:</h2>
 
-        <div class="row-sm">
+       <div class="card-wrapper"> 
         <% @placeholders.each do |p| %>
-       
-                <li><%= p.common_name %></li>
-                <li><%= p.scientific_name %></li>
+                <div class="card">
+                <h3>Common Name</h3> <%= p.common_name %><br>
+                <h3>Scientific Name</h3> <%= p.scientific_name %><br>
+                
+                
                 <% if current_user.nil? %>
-                        <li> <%= link_to "Log in to add to profile", login_path %>
+               
+                        <%= button_to "Log in to add to profile", login_path, method: :get %>
                 <% else %>
-                        <li><%= render "/add_plant", {:plant_id => p.id } %></li>
+                        <%= render "/add_plant", {:plant_id => p.id } %>
+               
                 <%end%>
+                
+                </div>
         <%end%>
 
         </div>
