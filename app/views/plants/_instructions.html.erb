@@ -1,4 +1,6 @@
 <ul><% @instructions.each do |i| %>
-        <li><%= i.notes %></li>
+        <p><%= i.notes %></p>
+        <%= link_to "delete" %>
+
         <%end%>
 </ul>

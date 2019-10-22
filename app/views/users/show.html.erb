@@ -9,9 +9,9 @@
           <a href=<%= p.photo%>>See Photo</a>
         <%end%>
          <%= show_instructions(p)%>
-         <%= link_to "Add instructions", new_user_plant_plants_user_path(@user.id, p.id), class: "card-button" %><br><br>
-         <%= render '/status', {:plantsuser => p.id, :user => @user} %>
+         <%= link_to "Add instructions", new_user_plant_plants_user_path(@user.id, p.id) %><br><br>
          </div>
+        
       <%end%><br>
       
 </div>

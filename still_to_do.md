@@ -4,3 +4,5 @@ add in the delete function for users.
  add sort functionality
 
  edit/delete options for plants/instructions  
+
+          <%= #plants_users_status(p, @user) %>

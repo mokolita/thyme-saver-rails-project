@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     end
   end 
 
-
+  patch 'plants_users/status' => 'plants_users#add_status', as: 'add_status'
   post 'plants/search' => 'plants#search', as: 'plants_search'
   
   get 'auth/facebook/callback' => 'sessions#omniauth'

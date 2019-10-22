@@ -16,4 +16,10 @@ module ApplicationHelper
      @instructions = plants_user.instructions
      render 'plants/instructions'
   end
+
+  def plants_users_status(plant, user)
+    pu = PlantsUser.find_by(user: user, plant: plant)
+
+    render '/status', :local => {plantsuser_id: pu.id}
+  end
 end

@@ -1,18 +1,15 @@
 
 <div class="card-button">
-<%= form_with(model: user, url: add_status_path, action: "edit", local: true) do |f| %>
-    <%= f.fields_for :plantsuser do |pu_form|%>
-    <%= pu_form.hidden_field :status, value: "Want"%>
-    <%end%>
+<%= form_with model: PlantsUser, url: add_status_path, local: true do |f| %>
+        <%= f.hidden_field (:id, value: plantsuser_id) %>
+    <%= f.hidden_field :status, value: "Want"%>
     <%= f.submit "Want"%>
 <%end%>
 </div>
 <div class="card-button">
-<%= form_with(model: user, url: , local: true) do |f| %>
-    <%= f.fields_for :plantsuser do |pu_form|%>
-    <%= pu_form.hidden_field :status, value: "Owned"%>
-    <%= pu_form.hidden_field :id, value: :plantsuser%>
-    <%end%>
+<%= form_with model: PlantsUser, url: add_status_path, local: true do |f| %>
+    <%= f.hidden_field (:id, value: plantsuser_id)%>
+    <%= f.hidden_field :status, value: "Own"%>
     <%= f.submit "Own"%>
 <%end%>
 </div>
