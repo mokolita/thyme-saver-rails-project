@@ -14,7 +14,7 @@ module ApplicationHelper
       plants_user = PlantsUser.find_by(user: user, plant: plant)
 
      @instructions = plants_user.instructions
-     render 'plants/instructions'
+     render 'plants/instructions', user: user
   end
 
   def plants_users_status(plant, user)

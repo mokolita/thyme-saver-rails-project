@@ -1,8 +1,9 @@
 <ul><% @instructions.each do |i| %>
 
         <p><%= i.notes %></p>
-        <%= form_with model: i, url: delete_instruction_path(i), method: "delete" do |f|%>
+        <%= form_with model: Instruction.new, url: delete_instruction_path, method: "delete" do |f|%>
         <%= f.hidden_field :id, value: i.id %>
+        <%= f.hidden_field :user, value: user.id%>
         <%= f.submit "Delete" %>
         <%end%>
         <%end%>
