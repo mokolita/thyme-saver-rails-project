@@ -12,7 +12,14 @@
          <%= link_to "Add instructions", new_user_plant_plants_user_path(@user.id, p.id) %><br><br>
 
          <%= plants_users_status(p, @user) %>
-         </div>
+        
+
+        <%= form_with url: user_plant_path(p), method: "delete" do |f|%>
+        <%= f.hidden_field :id, value: p.id %>
+        <%= f.hidden_field :user_id, value: @user.id%>
+        <%= f.submit "Delete plant" %>
+        <%end%>
+ </div>
         
       <%end%><br>
       

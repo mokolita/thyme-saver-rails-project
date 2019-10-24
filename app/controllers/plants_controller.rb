@@ -1,4 +1,7 @@
 class PlantsController < ApplicationController
+    before_action :logged_in_user, only: [:destroy]
+    before_action :correct_user,   only: [:destroy]
+
     def index 
     end 
    
@@ -37,13 +40,27 @@ class PlantsController < ApplicationController
         render :index 
     end 
 
-    def add 
-       
-
+    def destroy
+        
+        p = Plant.find_by(id: params[:id])
+        p.destroy
+        redirect_to user_path(current_user)
     end 
 
    
 
     private 
 
+
+    def logged_in_user
+        unless logged_in?
+          flash[:danger] = "Please log in."
+          redirect_to login_url
+        end
+    end
+
+    def correct_user
+        @user = User.find_by(id: params[:user])
+        @user == current_user
+    end
 end
