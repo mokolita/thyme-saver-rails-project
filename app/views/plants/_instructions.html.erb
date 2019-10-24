@@ -1,6 +1,9 @@
 <ul><% @instructions.each do |i| %>
-        <p><%= i.notes %></p>
-        <%= link_to "delete" %>
 
+        <p><%= i.notes %></p>
+        <%= form_with model: i, url: delete_instruction_path(i), method: "delete" do |f|%>
+        <%= f.hidden_field :id, value: i.id %>
+        <%= f.submit "Delete" %>
+        <%end%>
         <%end%>
 </ul>

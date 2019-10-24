@@ -2,10 +2,11 @@ Rails.application.routes.draw do
   resources :plants
   resources :users do 
     resources :plants, only: [:create, :new, :show, :index] do 
-      resources :plants_users
+      resources :plants_users 
     end
   end 
 
+  delete '/instructions/delete' => 'instructions#destroy', as: 'delete_instruction'
   patch 'plants_users/status' => 'plants_users#add_status', as: 'add_status'
   post 'plants/search' => 'plants#search', as: 'plants_search'
   

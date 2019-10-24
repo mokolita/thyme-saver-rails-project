@@ -1,15 +1,17 @@
 <h1><%= @user.full_name %></h1>
 
 <div class="card-wrapper">
-    <% current_user.plants.each do |p| %>
+    <% @user.plants.each do |p| %>
       <div class="card">
         <%= p.common_name %><br>
         <%= p.scientific_name %><br>
         <% if !p.photo.nil?%>
-          <a href=<%= p.photo%>>See Photo</a>
+          <a href=<%= p.photo%> class="card-button">See Photo</a>
         <%end%>
          <%= show_instructions(p)%>
          <%= link_to "Add instructions", new_user_plant_plants_user_path(@user.id, p.id) %><br><br>
+
+         <%= plants_users_status(p, @user) %>
          </div>
         
       <%end%><br>

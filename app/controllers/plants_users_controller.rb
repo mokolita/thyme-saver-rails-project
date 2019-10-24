@@ -30,16 +30,14 @@ class PlantsUsersController < ApplicationController
 
     def add_status 
         user = current_user 
-        plants_user = PlantsUser.find(params[:id])
-        plants_user.update_attribute(:status, params[:status])
+        plants_user = PlantsUser.find(params[:plants_user][:id])
+        plants_user.update_attribute(:status, params[:plants_user][:status])
         redirect_to user_path(user) 
        
     end 
 
     def destroy 
-        plantsuser = PlantsUser.find_by(user_id: join_params[:user_id], plant_id: join_params[:plant_id])
-        plantsuser.instructions.destroy 
-        redirect_to user_path(current_user)
+        
     end 
 
 

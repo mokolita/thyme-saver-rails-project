@@ -1,15 +1,20 @@
 
-<div class="card-button">
-<%= form_with model: PlantsUser, url: add_status_path, local: true do |f| %>
-        <%= f.hidden_field (:id, value: plantsuser_id) %>
-    <%= f.hidden_field :status, value: "Want"%>
-    <%= f.submit "Want"%>
+<p>Want or Own?</p>
+<% if plantsuser.status.nil? %>
+    <div class="card-button">
+    <%= form_with model: plantsuser, url: add_status_path, local: true do |f| %>
+        <%= f.hidden_field :id, value: plantsuser.id %>
+        <%= f.hidden_field :status, value: "Want"%>
+        <%= f.submit "Want"%>
+    <%end%>
+    </div>
+    <div class="card-button">
+    <%= form_with model: plantsuser, url: add_status_path, local: true do |f| %>
+        <%= f.hidden_field :id, value: plantsuser.id%>
+        <%= f.hidden_field :status, value: "Own"%>
+        <%= f.submit "Own"%>
+    <%end%>
+    </div>
+<% else %>
+    <%= plantsuser.status %>
 <%end%>
-</div>
-<div class="card-button">
-<%= form_with model: PlantsUser, url: add_status_path, local: true do |f| %>
-    <%= f.hidden_field (:id, value: plantsuser_id)%>
-    <%= f.hidden_field :status, value: "Own"%>
-    <%= f.submit "Own"%>
-<%end%>
-</div>
