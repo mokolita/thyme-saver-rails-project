@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
     include SessionsHelper
-    include UsersHelper
 
     class TAPIManager
        
