@@ -42,7 +42,7 @@ class PlantsController < ApplicationController
 
     def destroy
         
-        p = Plant.find_by(id: params[:id])
+        p = Plant.find_by(id: params[:user_id])
         p.destroy
         redirect_to user_path(current_user)
     end 
