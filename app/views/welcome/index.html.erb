@@ -2,8 +2,9 @@
 
 <div class="center jumbotron">
     <h3>About Thyme Saver </h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        
+        <div class="content">
+        <h3>Thyme Saver is an app to help you manage your plants.<br> Keep track of what plants you have (or want!) and all the different tasks that go into having a great garden!</h3>
+        </div>
         <div class="card-button">
         <% if !logged_in? %>
             <%= button_to "Sign Up Now!", new_user_path, method: :get %> <p>or</p> <%= button_to "Log In with Facebook!", '/auth/facebook'%>

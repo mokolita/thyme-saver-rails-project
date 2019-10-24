@@ -58,7 +58,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.2em;
+  font-size: 1.3em;
   letter-spacing: -1px;
   font-weight: normal;
   color: #777;
@@ -118,9 +118,10 @@ p {
   display: inline-block;
   input[type=submit] { 
     background-color:white; 
-    border: 0px;
-    color: darkgray;
+    border: .5px solid darkgray;
+    color: #003366;
     border-radius: 5px;
+    margin: 5px;
   }
 }
 
@@ -129,3 +130,20 @@ p {
   color: white;
 }
 
+.inline-button {
+  display: flex;
+  justify-content: center;
+  input {
+    margin-left: 8px;
+  }
+}
+
+.divider-bar {
+  border: 1px solid darkgray;
+  padding: 10px;
+  margin: 5px;
+}
+
+.content {
+  justify-content: center;
+}

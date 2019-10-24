@@ -3,21 +3,22 @@
 <div class="card-wrapper">
     <% @user.plants.each do |p| %>
       <div class="card">
-        <%= p.common_name %><br>
-        <%= p.scientific_name %><br>
+        Common Name: <%= p.common_name %><br>
+        Scientific Name: <%= p.scientific_name %><br>
         <% if !p.photo.nil?%>
           <a href=<%= p.photo%> class="card-button">See Photo</a>
         <%end%>
+        <div class="divider-bar">
          <%= show_instructions(p)%>
          <%= link_to "Add instructions", new_user_plant_plants_user_path(@user.id, p.id) %><br><br>
-
+        </div>
          <%= plants_users_status(p, @user) %>
         
 
         <%= form_with url: user_plant_path(p), method: "delete" do |f|%>
         <%= f.hidden_field :id, value: p.id %>
         <%= f.hidden_field :user_id, value: @user.id%>
-        <%= f.submit "Delete plant" %>
+        <div class="card-button"><%= f.submit "Delete plant" %></div>
         <%end%>
  </div>
         

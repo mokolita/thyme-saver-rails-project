@@ -1,25 +1,10 @@
-# README
+#THYME SAVER - A gardener's app.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#Motivation:
+This project is intended to let users add plants to their profile and attach all sorts of instructions and information about individual plants. 
+Thyme Saver uses Tefle.io as the API source for the plant information. Currently, not many plants have the full information filled out. As that
+changes, Thyme Saver will be updated to reflect all of the options they provide to users.
 
-Things you may want to cover:
+#Documentation:
+To see what is new on Trefle.io and how to query their API: https://trefle.io/reference 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# thyme-saver-rails-project

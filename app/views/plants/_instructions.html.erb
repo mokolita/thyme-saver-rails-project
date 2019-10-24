@@ -1,10 +1,10 @@
-<ul><% @instructions.each do |i| %>
-
+<% @instructions.each do |i| %>
+        <div class="inline-button">
         <p><%= i.notes %></p>
         <%= form_with model: Instruction.new, url: delete_instruction_path, method: "delete" do |f|%>
         <%= f.hidden_field :id, value: i.id %>
         <%= f.hidden_field :user, value: user.id%>
-        <%= f.submit "Delete" %>
+        <div class="card-button"><%= f.submit "Delete" %></div>
         <%end%>
+        </div>
         <%end%>
-</ul>
