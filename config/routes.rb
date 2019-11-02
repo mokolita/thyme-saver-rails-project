@@ -18,8 +18,8 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
-  get 'user/owns' => 'users#owns', as: 'user_owns'
-  get 'user/wants' => 'users#wants', as: 'user_wants'
+  get 'users/owns' => 'users#owns', as: 'user_owns'
+  get 'users/wants' => 'users#wants', as: 'user_wants'
   root "welcome#index"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

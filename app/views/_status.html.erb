@@ -1,6 +1,7 @@
 
-<p>Want or Own?</p>
+
 <% if plantsuser.status.nil? %>
+<p>Want or Own?</p>
     <div class="card-button">
     <%= form_with model: plantsuser, url: add_status_path, local: true do |f| %>
         <%= f.hidden_field :id, value: plantsuser.id %>

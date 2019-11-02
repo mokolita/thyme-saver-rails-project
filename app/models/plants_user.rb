@@ -7,14 +7,27 @@ class PlantsUser < ApplicationRecord
     scope :owns, -> { where status: 'Own' }
     scope :wants, -> { where status: 'Want' }
 
-    def self.owned_plants(user)
+    scope :owned_plants, ->(user){ owns.where(user: user)}
+    scope :wanted_plants, ->(user){ wants.where(user: user)}
 
-        pu = PlantsUser.all.where(user_id: user).owns
-        @plants = pu.map do |pu_object|
-            plant_id = pu_object.plant_id
-            Plant.find(plant_id)
-        end 
 
-    end 
+    # def self.owned_plants(user)
 
+    #     pu = PlantsUser.where(user_id: user).owns
+    #     pu.map do |pu_object|
+    #         plant_id = pu_object.plant_id
+    #         Plant.find(plant_id)
+    #     end 
+
+    # end 
+
+    # def self.wanted_plants(user)
+
+    #     pu = PlantsUser.where(user_id: user).wants
+    #     pu.map do |pu_object|
+    #         plant_id = pu_object.plant_id 
+    #         Plant.find(plant_id)
+    #     end 
+
+    # end 
 end

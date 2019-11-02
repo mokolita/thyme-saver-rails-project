@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :logged_in_user, only: [:show, :edit, :update]
-    before_action :correct_user,   only: [:show, :edit, :update]
+    before_action :correct_user,   only: [:edit, :update]
 
     
     def index
@@ -29,15 +29,22 @@ class UsersController < ApplicationController
     
     def owns
         @user = current_user
-        PlantsUser.owned_plants(@user.id)
-
-        render :show
+        pu = PlantsUser.owned_plants(@user.id)
+        @plants = pu.map do |pu_object|
+            plant_id = pu_object.plant_id
+            Plant.find(plant_id)
+        end 
+        render :owns
     end 
 
     def wants
         @user = current_user
-        @plants = PlantsUser.all.where(user_id: 7).wants
-        render :show
+        pu = PlantsUser.wanted_plants(@user.id)
+        @plants = pu.map do |pu_object|
+                    plant_id = pu_object.plant_id
+                    Plant.find(plant_id)
+                end 
+        render :wants
     end 
 
     def edit 
