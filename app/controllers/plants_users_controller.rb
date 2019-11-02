@@ -24,15 +24,15 @@ class PlantsUsersController < ApplicationController
         @plantsuser = PlantsUser.find_by(user_id: join_params[:user_id], plant_id: join_params[:plant_id])
     end 
 
-    def update
-       
-    end 
 
     def add_status 
         user = current_user 
         plants_user = PlantsUser.find(params[:plants_user][:id])
-        plants_user.update_attribute(:status, params[:plants_user][:status])
-        redirect_to user_path(user) 
+        if plants_user.update_attribute(:status, params[:plants_user][:status])
+            redirect_to user_path(user) 
+        else 
+            flash.now[:danger] = "Your status didn't update."
+        end 
        
     end 
 

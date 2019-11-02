@@ -24,6 +24,20 @@ class UsersController < ApplicationController
 
     def show 
         @user = current_user
+        @plants = @user.plants
+    end
+    
+    def owns
+        @user = current_user
+        PlantsUser.owned_plants(@user.id)
+
+        render :show
+    end 
+
+    def wants
+        @user = current_user
+        @plants = PlantsUser.all.where(user_id: 7).wants
+        render :show
     end 
 
     def edit 
@@ -32,8 +46,8 @@ class UsersController < ApplicationController
 
     def update 
         @user = User.find(params[:id])
-        @user.update(user_params)
-        if @user.update.valid?
+        
+        if @user.update(user_params)
             redirect_to user_path(@user)
         else 
             flash[:errors] = @user.errors.full_messages

@@ -1,7 +1,9 @@
 <h1><%= @user.full_name %></h1>
+<%= link_to "See what I own", user_owns_path %>
+<%= link_to "See what I want", user_wants_path %>
 
 <div class="card-wrapper">
-    <% @user.plants.each do |p| %>
+    <% @plants.each do |p| %>
       <div class="card">
         Common Name: <%= p.common_name %><br>
         Scientific Name: <%= p.scientific_name %><br>

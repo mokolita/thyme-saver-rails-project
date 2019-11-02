@@ -39,9 +39,9 @@ class PlantsController < ApplicationController
         end 
         render :index 
     end 
-
+    
     def destroy
-        
+        raise params.inspect
         p = Plant.find_by(id: params[:user_id])
         p.destroy
         redirect_to user_path(current_user)
