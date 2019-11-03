@@ -6,6 +6,8 @@ Thyme Saver uses Tefle.io as the API source for the plant information. Currently
 changes, Thyme Saver will be updated to reflect all of the options they provide to users.
 
 ## Installation 
+Use the github fork and clone: https://github.com/mokolita/thyme-saver-rails-project 
+
 Moving forward, the trefle.io token may be hidden. To get one, go to https://trefle.io and add that token to the header in the Application Controller or create your own .gitignore.
 
 ## Contributing
