@@ -1,6 +1,7 @@
 <h1><%= @user.full_name %></h1>
-<%= link_to "See what I own", user_owns_path %>
-<%= link_to "See what I want", user_wants_path %>
+<%= link_to "See what I own -", user_owns_path(@user) %>  
+<%= link_to "See what I want -", user_wants_path(@user) %>
+<%= link_to "See all my plants", user_path(@user)%>
 
 <%= render "profile", {user: @user, plants: @plants} %>
 

@@ -28,13 +28,14 @@ class UsersController < ApplicationController
     end
     
     def owns
+        
         @user = current_user
         pu = PlantsUser.owned_plants(@user.id)
         @plants = pu.map do |pu_object|
             plant_id = pu_object.plant_id
             Plant.find(plant_id)
         end 
-        render :owns
+        render :show
     end 
 
     def wants
@@ -44,7 +45,7 @@ class UsersController < ApplicationController
                     plant_id = pu_object.plant_id
                     Plant.find(plant_id)
                 end 
-        render :wants
+        render :show
     end 
 
     def edit 

@@ -1,12 +1,12 @@
 # THYME SAVER - A gardener's app.
 
 ## Description:
-This project is intended to let users add plants to their profile and attach all sorts of instructions and information about individual plants. 
-Thyme Saver uses Tefle.io as the API source for the plant information. Currently, not many plants have the full information filled out. As that
+This project is intended to let users add plants to their profile and attach  instructions and information about individual plants. 
+Thyme Saver uses Tefle.io as the API source for the plant information. Currently, not many plants have their full information filled out. As that
 changes, Thyme Saver will be updated to reflect all of the options they provide to users.
 
 ## Installation 
-Moving forward, the trefle.io token may be hidden. To create your own, go to https://trefle.io to create your own token and add that token to the header in the Application Controller or create your own .gitignore.
+Moving forward, the trefle.io token may be hidden. To get one, go to https://trefle.io and add that token to the header in the Application Controller or create your own .gitignore.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
